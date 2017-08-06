@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ArcGIS JS API Dojo Build Sample</title>
+    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+    <meta name='viewport' content='initial-scale=1.0 maximum-scale=1.0'>
+    <link rel="stylesheet" href="esri/css/main.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+
+    <style>
+      html, body, #map {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #FFF;
+        overflow: hidden;
+      }
+
+      #banner {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        right: 0;
+        padding: 2em;
+        background-color: #EDA959;
+        color: #fff;
+        font-family: sans-serif;
+      }
+
+      #viewDiv {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+      }
+
+      #searchDiv {
+        position: absolute;
+        z-index: 20;
+        top: 20px;
+        left: 74px;
+      }
+    </style>
+  </head>
+  <body class="nihilo">
+    <div id="chartdiv" style="width: 450px; height: calc(100% - 50px); position: absolute; bottom: 50px; right: 0; top: 50px; z-index: 100;"></div>
+    <div id="banner">Unbuilt Application</div>
+    <div id="searchDiv"></div>
+    <div id="colorMixMode" style="background-color: white;">
+      <input type="radio" id="original" name="mode" checked><label for="original">Original</label><br>
+      <input type="radio" id="lotArea" name="mode"><label for="lotArea">Show lot area</label><br>
+      <input type="radio" id="floorCount" name="mode"><label for="floorCount">Floor count</label><br>
+      <input type="radio" id="gfa" name="mode"><label for="gfa">GFA</label><br>
+      <input type="radio" id="buildableArea" name="mode"><label for="buildableArea">Buildable Area</label><br>
+      <input type="radio" id="BuiltFAR" name="mode"><label for="BuiltFAR">Built FAR</label><br>
+    </div>
+    <div id="viewDiv"style="width: calc(100% - 450px); height:100%; position: absolute; top: 0; left: 0;"></div>
+
+    <script>
+      // set up your dojoConfig
+      window.dojoConfig = {
+        baseUrl: '.',
+        //deps: ['app/main'],
+        packages: [
+          'app',
+          'dijit',
+          'dojo',
+          'dojox',
+          'dstore',
+          'dgrid',
+          'esri',
+          {
+            name: 'moment',
+            location: 'moment',
+            main: 'moment'
+          }
+        ]
+      };
+    </script>
+
+    <!-- Can use Dojo loader directly -->
+    <script src="dojo/dojo.js"></script>
+    <script>require(["app/main"]);</script>
+
+  </body>
+</html>
